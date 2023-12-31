@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard @Task4</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <style>
+    .chart-container {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    .chart {
+      flex: 1;
+      max-width: 45%; /* Adjust width of each chart */
+    }
+  </style>
+</head>
+<h3> &nbsp; &nbsp; Company Metrics</h3>
+<div class="card-container">
+    <div class="statistic-card">
+        <div class="left-border"></div>
+        <div class="content">
+            <h2 style="color: mediumspringgreen;">$406,411.29</h2>
+            <br>
+            <p>Total Revenue</p>
+        </div>
+    </div>
+
+    <div class="statistic-card">
+        <div class="left-border"></div>
+        <div class="content">
+            <h2>$620</h2>
+            <br>
+            <p>Total Jobs Avg.</p>
+        </div>
+    </div>
+
+    <div class="statistic-card">
+        <div class="left-border"></div>
+        <div class="content">
+            <h2>655</h2>
+            <br>
+            <p>Tickets Created</p>
+        </div>
+    </div>
+
+    <div class="statistic-card">
+        <div class="left-border"></div>
+        <div class="content">
+            <h2>735</h2>
+            <br>
+            <p>Tickets Scheduled</p>
+        </div>
+    </div>
+</div>
+
+<div class="card-container">
+    <div class="statistic-card">
+        <div class="left-border"></div>
+        <div class="content">
+            <h2 style="color: red;">$110,448.8</h2>
+            <br>
+            <p>Outstanding Amount</p>
+        </div>
+    </div>
+
+    <div class="statistic-card">
+        <div class="left-border"></div>
+        <div class="content">
+            <h2>105</h2>
+            <br>
+            <p>Memberships Sold</p>
+        </div>
+    </div>
+
+    <div class="statistic-card">
+        <div class="left-border"></div>
+        <div class="content">
+            <h2>436</h2>
+            <br>
+            <p>Jobs Completed</p>
+        </div>
+    </div>
+
+    <div class="statistic-card">
+        <div class="left-border"></div>
+        <div class="content">
+            <h2>65</h2>
+            <br>
+            <p>Total Canceled</p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div class="chart-container">
+    <div id="chart1" class="chart"><p style="font-weight: bolder;">&nbsp;&nbsp;&nbsp;&nbsp;Revenue By Job Location</p></div>
+    <div id="chart2" class="chart"><p style="font-weight: bolder;">&nbsp;&nbsp;&nbsp;&nbsp;Revenue By Job Type</p></div>
+  </div>
+
+  <script>
+    var options1 = {
+      series: [{
+        data: [70000,65000,49000,46500,42500,34000]
+      }],
+      chart: {
+        type: 'bar',
+        height: 300,
+        toolbar: {
+          show: false // Hide toolbar (including download options)
+        }
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 4,
+          horizontal: true,
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      xaxis: {
+        categories: ['Everett', 'Seattle', 'Lynnwood', 'Bothell', 'Mukillteo', 'Edmonds'
+        ],
+         title: {
+          text: 'Revenue for November 2019' // Label for X-axis
+        }
+      },
+      yaxis: {
+        min: 5000,
+        max: 60000,
+        tickAmount: 12, // Display 10 ticks on the Y-axis
+        title: {
+          text: '' // Label for Y-axis
+        }
+      },
+      colors:['#00fa9a']
+      
+    };
+
+    var options2 = {
+      series: [{
+        data: [180000,130000,79500,78500,44000,42000,10000]
+      }],
+      chart: {
+        type: 'bar',
+        height: 300,
+        toolbar: {
+          show: false // Hide toolbar (including download options)
+        }
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 4,
+          horizontal: true,
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      xaxis: {
+        categories: ['Service Plumbing', 'Bid Work HVAC', 'Service HVAC', 'Bid Work Plumbing', 'HWT Replacement', 'Maintenance', 'Material Sale'],
+        title: {
+          text: 'Revenue for November 2019' // Label for X-axis
+        }
+      },
+      yaxis: {
+        min: 0,
+        max: 140000,
+        tickAmount: 7, // Display 10 ticks on the Y-axis
+        title: {
+          text: '' // Label for Y-axis
+        }
+      },
+      colors:['#00fa9a']
+    };
+
+    var chart1 = new ApexCharts(document.querySelector("#chart1"), options1);
+    chart1.render();
+
+    var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
+    chart2.render();
+  </script>
+</html>
